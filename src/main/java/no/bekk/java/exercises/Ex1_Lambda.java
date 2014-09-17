@@ -10,26 +10,37 @@ import java.util.function.Predicate;
 
 public class Ex1_Lambda {
 
-    public static Function<Player, String> playerName = Player::getName;
+    public static Function<Player, String> playerName() {
+        return Player::getName;
+    }
 
-    public static Function<Player, Integer> playerAge = Player::getAge;
+    public static Function<Player, Integer> playerAge() {
+        return Player::getAge;
+    }
 
     public static Predicate<Player> isOlderThan(Integer age) {
         return p -> p.getAge() > age;
     }
 
-    static BinaryOperator<Player> youngestPlayer = (x, y) -> {
-        if (x.birthDate.isAfter(y.birthDate)) return x;
-        else return y;
-    };
+    static BinaryOperator<Player> youngestPlayer() {
 
-    static BinaryOperator<Team> highestTeamValue = (x, y) -> {
-        if (x.value > y.value) return x;
-        else return y;
-    };
+        return (x, y) -> {
+            if (x.birthDate.isAfter(y.birthDate)) return x;
+            else return y;
+        };
+    }
 
-	static BinaryOperator<League> longestLeagueName = (x, y) -> {
-		if (x.getName().length() > y.getName().length()) return x;
-		else return y;
-	};
+    static BinaryOperator<Team> highestTeamValue() {
+        return (x, y) -> {
+            if (x.value > y.value) return x;
+            else return y;
+        };
+    }
+
+    static BinaryOperator<League> longestLeagueName() {
+        return (x, y) -> {
+            if (x.getName().length() > y.getName().length()) return x;
+            else return y;
+        };
+    }
 }

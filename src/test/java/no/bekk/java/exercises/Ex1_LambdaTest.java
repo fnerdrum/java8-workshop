@@ -17,13 +17,13 @@ public class Ex1_LambdaTest {
 
     @Test
     public void testPlayerName() {
-        List<String> names = manchesterUnited.getPlayers().stream().map(Ex1_Lambda.playerName).collect(toList());
+        List<String> names = manchesterUnited.getPlayers().stream().map(Ex1_Lambda.playerName()).collect(toList());
         assertThat(names, is(asList("Wayne Rooney", "Juan Matta", "Robin van Persie")));
     }
 
     @Test
     public void testPlayerAge() {
-        List<Integer> ages = bayernMunchen.getPlayers().stream().map(Ex1_Lambda.playerAge).collect(toList());
+        List<Integer> ages = bayernMunchen.getPlayers().stream().map(Ex1_Lambda.playerAge()).collect(toList());
         assertThat(ages, is(asList(31, 30, 30)));
     }
 
@@ -36,21 +36,21 @@ public class Ex1_LambdaTest {
 
     @Test
     public void testYoungestPlayer() {
-        Player youngestPlayer = Ex1_Lambda.youngestPlayer.apply(franckRibery, arjenRobben);
+        Player youngestPlayer = Ex1_Lambda.youngestPlayer().apply(franckRibery, arjenRobben);
 
         assertThat(youngestPlayer, is(arjenRobben));
     }
 
     @Test
     public void testHighestTeamValue() {
-        Team teamWithHighestValue = Ex1_Lambda.highestTeamValue.apply(manchesterUnited, liverpool);
+        Team teamWithHighestValue = Ex1_Lambda.highestTeamValue().apply(manchesterUnited, liverpool);
 
         assertThat(teamWithHighestValue, is(manchesterUnited));
     }
 
 	@Test
 	public void testLongestLeagueName () {
-		League leagueWithLongestName = Ex1_Lambda.longestLeagueName.apply(laLiga, premierLeague);
+		League leagueWithLongestName = Ex1_Lambda.longestLeagueName().apply(laLiga, premierLeague);
 
 		assertThat(leagueWithLongestName, is(premierLeague));
 	}

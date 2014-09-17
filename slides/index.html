@@ -139,7 +139,7 @@ x -> x == 1
             <pre class="prettyprint" data-lang="Java 8">
 @FunctionalInterface
 public interface MyFunctionalInterface&lt;I, O&gt; {
-    public O apply(I i);
+    O apply(I i);
 }
             </pre>
 	</article>
@@ -152,7 +152,7 @@ public interface MyFunctionalInterface&lt;I, O&gt; {
 	<article>
             <pre class="prettyprint" data-lang="Java 8">
 @FunctionalInterface public interface MyFunctionalInterface&lt;I, O&gt; {
-    public O apply(I i);
+    O apply(I i);
 }
             </pre>
             <pre class="prettyprint" data-lang="Java 8">
@@ -261,7 +261,7 @@ public static List&lt;Car&gt; getExpensiveCars(List&lt;Car&gt; cars) {
 }
 		</pre>
 		<pre class="prettyprint" data-lang="Java 8">
-public static List&lt;String&gt; getExpensiveCars(List&lt;Car&gt; cars) {
+public static List&lt;Car&gt; getExpensiveCars(List&lt;Car&gt; cars) {
     return cars.stream()
                    .filter(c -&gt; c.price &gt; 1_000_000)
                    .collect(Collectors.toList());

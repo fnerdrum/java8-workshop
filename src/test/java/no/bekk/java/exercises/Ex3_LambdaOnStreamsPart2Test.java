@@ -115,10 +115,10 @@ public class Ex3_LambdaOnStreamsPart2Test {
 	}
 
     @Test
-    public void testNameOfPlayerClosestToAverage() {
+    public void testNameOfPlayerClosestToAverageAge() {
         List<Player> players = asList(wayneRooney, juanMatta, olivierGiroud, davidVilla);
 
-        String nameOfPlayerClosestToAverage = Ex3_LambdaOnStreamsPart2.nameOfPlayerClosestToAverage(players);
+        String nameOfPlayerClosestToAverage = Ex3_LambdaOnStreamsPart2.nameOfPlayerClosestToAverageAge(players);
 
         assertThat(nameOfPlayerClosestToAverage, is("Wayne Rooney"));
     }

@@ -15,7 +15,6 @@ import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.summingDouble;
 import static java.util.stream.Collectors.toList;
-import static no.bekk.java.exercises.Ex1_Lambda.youngestPlayer;
 
 public class Ex3_LambdaOnStreamsPart2 {
 
@@ -36,11 +35,11 @@ public class Ex3_LambdaOnStreamsPart2 {
 	}
 
 	static Player youngestPlayer(List<Player> players) {
-		return players.stream().reduce(Ex1_Lambda.youngestPlayer).get();
+		return players.stream().reduce(Ex1_Lambda.youngestPlayer()).get();
 	}
 
 	static Team teamWithHighestValue(final List<Team> teams) {
-		return teams.stream().reduce(Ex1_Lambda.highestTeamValue).get();
+		return teams.stream().reduce(Ex1_Lambda.highestTeamValue()).get();
 	}
 
 	static Map<Integer, List<Player>> groupPlayersByBirthYear(List<Player> players) {
@@ -69,7 +68,7 @@ public class Ex3_LambdaOnStreamsPart2 {
 						.thenComparing(Player::getName)).collect(toList());
 	}
 
-    static String nameOfPlayerClosestToAverage(List<Player> players) {
+    static String nameOfPlayerClosestToAverageAge(List<Player> players) {
         Double average = averageAgeOfPlayers(players);
         return players.stream().min(comparing(player -> Math.abs(player.getAge() - average))).get().getName();
     }
@@ -81,7 +80,7 @@ public class Ex3_LambdaOnStreamsPart2 {
 	}
 
     private static Player getYoungestPlayer(Team team) {
-        return team.getPlayers().stream().reduce(youngestPlayer).get();
+        return team.getPlayers().stream().reduce(Ex1_Lambda.youngestPlayer()).get();
     }
 
     private static <K, V> Collector<Map.Entry<K, V>, ?, Map<K, V>> toMap() {
