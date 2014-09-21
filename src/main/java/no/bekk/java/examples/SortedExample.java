@@ -29,7 +29,7 @@ public class SortedExample {
     static class Java8 {
         public static List<Car> sortedByPrice(List<Car> cars) {
             return cars.stream()
-                    .sorted(Comparator.comparing(Car::getPrice))
+                    .sorted(Comparator.comparing(car -> car.getPrice()))
                     .collect(Collectors.toList());
         }
     }

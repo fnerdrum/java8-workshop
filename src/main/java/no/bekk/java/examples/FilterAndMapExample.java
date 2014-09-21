@@ -27,7 +27,7 @@ public class FilterAndMapExample {
         public static List<String> getBrandOfExpensiveCars(List<Car> cars) {
             return cars.stream()
                     .filter(c -> c.price > 1_000_000)
-                    .map(Car::getBrand)
+                    .map(car -> car.getBrand())
                     .collect(Collectors.toList());
         }
     }

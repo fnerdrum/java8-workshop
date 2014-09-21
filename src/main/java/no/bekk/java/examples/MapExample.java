@@ -24,7 +24,7 @@ public class MapExample {
     static class Java8 {
         public static List<String> getBrands(List<Car> cars) {
             return cars.stream()
-                    .map(Car::getBrand)
+                    .map(car -> car.getBrand())
                     .collect(Collectors.toList());
         }
     }

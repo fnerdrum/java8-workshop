@@ -289,7 +289,7 @@ public static List&lt;String&gt; getBrands(List&lt;Car&gt; cars) {
 		<pre class="prettyprint" data-lang="Java 8">
 public static List&lt;String&gt; getBrands(List&lt;Car&gt; cars) {
     return cars.stream()
-                   .map(Car::getBrand)
+                   .map(car -> car.getBrand())
                    .collect(Collectors.toList());
 }
 		</pre>
@@ -320,7 +320,7 @@ public static List&lt;String&gt; getBrandOfExpensiveCars(List&lt;Car&gt; cars) {
 public static List&lt;String&gt; getBrandOfExpensiveCars(List&lt;Car&gt; cars) {
     return cars.stream()
                    .filter(c -&gt; c.price &gt; 1_000_000)
-                   .map(Car::getBrand)
+                   .map(car -> car.getBrand())
                    .collect(Collectors.toList());
 }
 		</pre>
@@ -362,7 +362,7 @@ public static List&lt;Car&gt; sortedByPrice(List&lt;Car&gt; cars) {
 <pre class="prettyprint" data-lang="Java 8">
 public static List&lt;Car&gt; sortedByPrice(List&lt;Car&gt; cars) {
     return cars.stream()
-            .sorted(Comparator.comparing(Car::getPrice))
+            .sorted(Comparator.comparing(car -> car.getPrice()))
             .collect(Collectors.toList());
 }
 </pre>
@@ -422,15 +422,15 @@ public static List&lt;Player&gt; getPlayerPlayer(List&lt;Team&gt; teams) {
 			</tr>
 			<tr>
 				<td>mapToInt(mapper)</td>
-				<td class="code">strings.mapToInt(Integer::valueOf);</td>
+				<td class="code">strings.mapToInt(x -> Integer.valueOf(x));</td>
 			</tr>
 			<tr>
 				<td>mapToLong(mapper)</td>
-				<td class="code">strings.mapToLong(Long::valueOf);</td>
+				<td class="code">strings.mapToLong(x -> Long.valueOf(x));</td>
 			</tr>
 			<tr>
 				<td>mapToDouble(mapper)</td>
-				<td class="code">strings.mapToDouble(Double::valueOf);</td>
+				<td class="code">strings.mapToDouble(x -> Double.valueOf(x));</td>
 			</tr>
 			<tr>
 				<td>flatMap(mapper)</td>
@@ -438,15 +438,15 @@ public static List&lt;Player&gt; getPlayerPlayer(List&lt;Team&gt; teams) {
 			</tr>
 			<tr>
 				<td>flatMapToInt(mapper)</td>
-				<td class="code">streams.flatMapToInt(s -> s.mapToInt(Integer::valueOf));</td>
+				<td class="code">streams.flatMapToInt(s -> s.mapToInt(x -> Integer.valueOf(x)));</td>
 			</tr>
 			<tr>
 				<td>flatMapToLong(mapper)</td>
-				<td class="code">streams.flatMapToLong(s -> s.mapToLong(Long::valueOf));</td>
+				<td class="code">streams.flatMapToLong(s -> s.mapToLong(x -> Long.valueOf(x)));</td>
 			</tr>
 			<tr>
 				<td>flatMapToDouble(mapper)</td>
-				<td class="code">streams.flatMapToDouble(s -> s.mapToDouble(Double::valueOf));</td>
+				<td class="code">streams.flatMapToDouble(s -> s.mapToDouble(x -> Double.valueOf(x)));</td>
 			</tr>
 			<tr>
 				<td>distinct()</td>
@@ -462,7 +462,7 @@ public static List&lt;Player&gt; getPlayerPlayer(List&lt;Team&gt; teams) {
 			</tr>
 			<tr>
 				<td>peek(action)</td>
-				<td class="code">strings.peek(System.out::println);</td>
+				<td class="code">strings.peek(x -> System.out.println(x));</td>
 			</tr>
 			<tr>
 				<td>limit(maxSize)</td>
@@ -492,11 +492,11 @@ public static List&lt;Player&gt; getPlayerPlayer(List&lt;Team&gt; teams) {
 			</tr>
 			<tr>
 				<td>forEach(action)</td>
-				<td class="code">strings.forEach(System.out::println);</td>
+				<td class="code">strings.forEach(x -> System.out.println(x));</td>
 			</tr>
 			<tr>
 				<td>forEachOrdered(action)</td>
-				<td class="code">strings.forEachOrdered(System.out::println);</td>
+				<td class="code">strings.forEachOrdered(x -> System.out.println(x));</td>
 			</tr>
 			<tr>
 				<td>toArray()</td>
@@ -508,15 +508,15 @@ public static List&lt;Player&gt; getPlayerPlayer(List&lt;Team&gt; teams) {
 			</tr>
 			<tr>
 				<td>reduce(identity, accumulator)</td>
-				<td class="code">strings.reduce("", String::concat);</td>
+				<td class="code">strings.reduce("", (x, y) -> x.concat(y));</td>
 			</tr>
 			<tr>
 				<td>reduce(accumulator)</td>
-				<td class="code">strings.reduce(String::concat);</td>
+				<td class="code">strings.reduce((x, y) -> x.concat(y));</td>
 			</tr>
 			<tr>
 				<td>reduce(identity, accumulator, combiner)</td>
-				<td class="code">strings.reduce(0, (x, y) -> x + y.length(), Integer::sum);</td>
+				<td class="code">strings.reduce(0, (x, y) -> x + y.length(), (x, y) -> x + y);</td>
 			</tr>
 			<tr>
 				<td>collect(collector)</td>
@@ -524,7 +524,7 @@ public static List&lt;Player&gt; getPlayerPlayer(List&lt;Team&gt; teams) {
 			</tr>
 			<tr>
 				<td>collect(supplier, accumulator, combiner)</td>
-				<td class="code">strings.collect(ArrayList::new, ArrayList::add, ArrayList::addAll);</td>
+				<td class="code">strings.collect(() -> new ArrayList<>(), (list, elem) -> list.add(elem), (l1, l2) -> l1.addAll(l2));</td>
 			</tr>
 			<tr>
 				<td>min(comparator)</td>
