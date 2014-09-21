@@ -19,7 +19,7 @@ import static java.util.stream.Collectors.toList;
 public class Ex3_LambdaOnStreamsPart2 {
 
 	static Integer ageOfOldestPlayer(List<Player> players) {
-		return players.stream().mapToInt(Player::getAge).max().getAsInt();
+		return players.stream().mapToInt(player -> player.getAge()).max().getAsInt();
 	}
 
 	static List<Player> playersWithNamesStartingWith(String start, List<Player> players) {
@@ -27,11 +27,11 @@ public class Ex3_LambdaOnStreamsPart2 {
 	}
 
 	static Double averageAgeOfPlayers(List<Player> players) {
-		return players.stream().mapToInt(Player::getAge).average().getAsDouble();
+		return players.stream().mapToInt(player -> player.getAge()).average().getAsDouble();
 	}
 
 	static Double sumValueOfAllTeams(List<Team> teams) {
-		return teams.stream().collect(summingDouble(Team::getValue));
+		return teams.stream().collect(summingDouble(team -> team.getValue()));
 	}
 
 	static Player youngestPlayer(List<Player> players) {
@@ -49,7 +49,7 @@ public class Ex3_LambdaOnStreamsPart2 {
 	static List<Double> sumValuesOfEachLeague(final List<League> leagues) {
 		return leagues.stream()
 				.map(league -> league.getTeams().stream()
-						.collect(summingDouble(Team::getValue)))
+						.collect(summingDouble(team -> team.getValue())))
 				.collect(toList());
 	}
 
@@ -63,9 +63,9 @@ public class Ex3_LambdaOnStreamsPart2 {
 
 	static List<Player> sortByAgeAndThenName(final List<Player> players) {
 		return players.stream().sorted(
-				comparing(Player::getBirthDate)
+				comparing((Player player) -> player.getBirthDate())
 						.reversed()
-						.thenComparing(Player::getName)).collect(toList());
+						.thenComparing(player -> player.getName())).collect(toList());
 	}
 
     static String nameOfPlayerClosestToAverageAge(List<Player> players) {
@@ -84,7 +84,7 @@ public class Ex3_LambdaOnStreamsPart2 {
     }
 
     private static <K, V> Collector<Map.Entry<K, V>, ?, Map<K, V>> toMap() {
-        return Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue);
+        return Collectors.toMap(x -> x.getKey(), x -> x.getValue());
     }
 
 }

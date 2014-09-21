@@ -12,7 +12,7 @@ import static java.util.stream.Collectors.toList;
 public class Ex2_LambdaOnStreamsPart1 {
 
 	static List<String> teamNames(List<Team> teams) {
-		return teams.stream().map(Team::getName).collect(toList());
+		return teams.stream().map(team -> team.getName()).collect(toList());
 	}
 
 	static List<Player> removeOldPlayers(LocalDate maxAge, List<Player> players) {
