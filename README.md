@@ -8,14 +8,14 @@ Slides for the workshop are located in the _slides_ folder of the project.
 1. Install Maven (http://maven.apache.org/download.cgi)
 2. Install Java 8 JDK (http://www.oracle.com/technetwork/java/javase/downloads/)
 3. Install git (http://git-scm.com/downloads)
-4. Clone the project: `git@github.com:fnerdrum/java8-workshop.git`
+4. Clone the project: `git clone https://github.com/fnerdrum/java8-workshop.git`
 5. Execute `mvn compile` from the project root folder
 6. Run `mvn test` to execute the tests (they should all fail)
 7. Import the project to your IDE
 
 ###Setup with IntelliJ
 1. Install git (http://git-scm.com/downloads)
-2. Clone the project: `git@github.com:fnerdrum/java8-workshop.git`
+2. Clone the project: `git clone https://github.com/fnerdrum/java8-workshop.git`
 3. Download and extract Java 8 JDK (http://www.oracle.com/technetwork/java/javase/downloads/)
 4. Install IntelliJ (http://www.jetbrains.com/idea/download/)
 5. Import the project (pom.xml) in IntelliJ
