@@ -162,11 +162,10 @@ MyFunctionalInterface&lt;String, Integer&gt; fn1 =
             return Integer.valueOf(s);
         }
     };
+
 MyFunctionalInterface&lt;String, Integer&gt; fn2 = (String a) -> {return Integer.valueOf(a);};
-MyFunctionalInterface&lt;String, Integer&gt; fn3 = (String a) -> Integer.valueOf(a);
-MyFunctionalInterface&lt;String, Integer&gt; fn4 = (a) -> Integer.valueOf(a);
-MyFunctionalInterface&lt;String, Integer&gt; fn5 = a -> Integer.valueOf(a);
-MyFunctionalInterface&lt;String, Integer&gt; fn6 = Integer::valueOf;
+
+MyFunctionalInterface&lt;String, Integer&gt; fn3 = a -> Integer.valueOf(a);
             </pre>
 	</article>
 </slide>
