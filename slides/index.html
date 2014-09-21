@@ -577,43 +577,6 @@ public static List&lt;Player&gt; getPlayerPlayer(List&lt;Team&gt; teams) {
 	</article>
 </slide>
 
-<slide>
-	<hgroup>
-		<h2>Optional</h2>
-	</hgroup>
-	<article class="smaller">
-		<ul>
-			<li>public Person(String name)</li>
-			<li>public House(Person owner)</li>
-		</ul>
-            <pre class="prettyprint" data-lang="Java 7">
-public static String getNameOfOwner(House house) {
-  if (house != null && house.owner != null && house.owner.name != null) {
-    return house.owner.name;
-  } else {
-    return "Doesn't exist";
-  }
-}
-            </pre>
-            <pre class="prettyprint" data-lang="Java 8">
-public static String getNameOfOwner(House house) {
-  return Optional.of(house).map(h -> h.owner).map(p -> p.name).orElseGet(() -> "Doesn't exist");
-}
-            </pre>
-	</article>
-</slide>
-
-<slide>
-	<hgroup>
-		<h2>Exercises</h2>
-	</hgroup>
-	<article>
-		<ul>
-			<li>Ex5_Optional</li>
-		</ul>
-	</article>
-</slide>
-
 <slide class="thank-you-slide segue nobackground">
 	<aside class="gdbar right"><img src="images/BEKK_logo.png"></aside>
 	<article class="flexbox vleft auto-fadein">
