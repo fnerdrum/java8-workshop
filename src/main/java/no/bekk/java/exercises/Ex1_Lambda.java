@@ -8,39 +8,32 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+import static no.bekk.java.util.Utils.implementThis;
+
 public class Ex1_Lambda {
 
     public static Function<Player, String> playerName() {
-        return player -> player.getName();
+        return implementThis();
     }
 
     public static Function<Player, Integer> playerAge() {
-        return player -> player.getAge();
+        return implementThis();
     }
 
     public static Predicate<Player> isOlderThan(Integer age) {
-        return p -> p.getAge() > age;
+        return implementThis();
     }
 
     static BinaryOperator<Player> youngestPlayer() {
 
-        return (x, y) -> {
-            if (x.birthDate.isAfter(y.birthDate)) return x;
-            else return y;
-        };
+        return implementThis();
     }
 
     static BinaryOperator<Team> highestTeamValue() {
-        return (x, y) -> {
-            if (x.value > y.value) return x;
-            else return y;
-        };
+        return implementThis();
     }
 
     static BinaryOperator<League> longestLeagueName() {
-        return (x, y) -> {
-            if (x.getName().length() > y.getName().length()) return x;
-            else return y;
-        };
+        return implementThis();
     }
 }
