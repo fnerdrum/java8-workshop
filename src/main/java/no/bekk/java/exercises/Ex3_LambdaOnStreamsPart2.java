@@ -66,13 +66,4 @@ public class Ex3_LambdaOnStreamsPart2 {
 	static Map<String, Player> youngestPlayerOnEachTeamMappedByTeamName(final List<Team> teams) {
 		return implementThis();
 	}
-
-    private static Player getYoungestPlayer(Team team) {
-		return implementThis();
-    }
-
-    private static <K, V> Collector<Map.Entry<K, V>, ?, Map<K, V>> toMap() {
-		return implementThis();
-    }
-
 }
